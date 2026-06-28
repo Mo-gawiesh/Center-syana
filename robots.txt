@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://appliances-center.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Disallow admin/private areas (none currently)
+# Disallow: /admin/
