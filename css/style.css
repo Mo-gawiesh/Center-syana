@@ -1943,8 +1943,11 @@ button {
    =================================================== */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .reveal.revealed {
@@ -1954,8 +1957,11 @@ button {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateX(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .reveal-left.revealed {
@@ -1965,8 +1971,11 @@ button {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: scale(0.97);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .reveal-scale.revealed {
