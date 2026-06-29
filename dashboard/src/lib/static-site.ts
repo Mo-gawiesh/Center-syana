@@ -44,15 +44,47 @@ export const fallbackSettings = {
   },
 };
 
+// =====================================================
+// 37 BRANDS — matching the original site exactly
+// =====================================================
 export const fallbackBrands = [
-  { _id: "brand-lg", name: "LG", logoUrl: "/assets/Brands/LG Logo.png" },
-  { _id: "brand-samsung", name: "Samsung", logoUrl: "/assets/Brands/samsung-logo-png-1286.png" },
-  { _id: "brand-bosch", name: "Bosch", logoUrl: "/assets/Brands/bosch-logo-39982.png" },
-  { _id: "brand-whirlpool", name: "Whirlpool", logoUrl: "/assets/Brands/Whirlpool.png" },
-  { _id: "brand-carrier", name: "Carrier", logoUrl: "/assets/Brands/Carrier Logo.png" },
-  { _id: "brand-toshiba", name: "Toshiba", logoUrl: "/assets/Brands/Toshiba.png" },
-  { _id: "brand-beko", name: "Beko", logoUrl: "/assets/Brands/Beko.png" },
-  { _id: "brand-zanussi", name: "Zanussi", logoUrl: "/assets/Brands/Zanussi.png" },
+  { _id: "brand-lg",                name: "LG",                 logoUrl: "/assets/Brands/LG Logo.png" },
+  { _id: "brand-bosch",             name: "Bosch",              logoUrl: "/assets/Brands/bosch-logo-39982.png" },
+  { _id: "brand-sharp",             name: "Sharp",              logoUrl: "/assets/Brands/SHARP Logo.png" },
+  { _id: "brand-samsung",           name: "Samsung",            logoUrl: "/assets/Brands/samsung-logo-png-1286.png" },
+  { _id: "brand-kiriazi",           name: "Kiriazi",            logoUrl: "/assets/Brands/Kiriazi.png" },
+  { _id: "brand-carrier",           name: "Carrier",            logoUrl: "/assets/Brands/Carrier Logo.png" },
+  { _id: "brand-toshiba",           name: "Toshiba",            logoUrl: "/assets/Brands/Toshiba.png" },
+  { _id: "brand-fresh",             name: "Fresh",              logoUrl: "/assets/Brands/Fresh.png" },
+  { _id: "brand-unionaire",         name: "Unionaire",          logoUrl: "/assets/Brands/union aire Logo.png" },
+  { _id: "brand-tornado",           name: "Tornado",            logoUrl: "/assets/Brands/Tornado.png" },
+  { _id: "brand-midea",             name: "Midea",              logoUrl: "/assets/Brands/media.png" },
+  { _id: "brand-white-westinghouse",name: "White Westinghouse", logoUrl: "/assets/Brands/White Westinghouse.png" },
+  { _id: "brand-panasonic",         name: "Panasonic",          logoUrl: "/assets/Brands/Panasonic.png" },
+  { _id: "brand-beko",              name: "Beko",               logoUrl: "/assets/Brands/Beko.png" },
+  { _id: "brand-zanussi",           name: "Zanussi",            logoUrl: "/assets/Brands/Zanussi.png" },
+  { _id: "brand-electrolux",        name: "Electrolux",         logoUrl: "/assets/Brands/Electrolux.png" },
+  { _id: "brand-indesit",           name: "Indesit",            logoUrl: "/assets/Brands/Indesit.png" },
+  { _id: "brand-whirlpool",         name: "Whirlpool",          logoUrl: "/assets/Brands/Whirlpool.png" },
+  { _id: "brand-ge",                name: "GE",                 logoUrl: "/assets/Brands/GE.png" },
+  { _id: "brand-white-whale",       name: "White Whale",        logoUrl: "/assets/Brands/White Whale.png" },
+  { _id: "brand-white-point",       name: "White Point",        logoUrl: "/assets/Brands/White Point.png" },
+  { _id: "brand-electrostar",       name: "Electrostar",        logoUrl: "/assets/Brands/Electrostar.png" },
+  { _id: "brand-siemens",           name: "Siemens",            logoUrl: "/assets/Brands/Siemens.png" },
+  { _id: "brand-hitachi",           name: "Hitachi",            logoUrl: "/assets/Brands/hitachi logo.png" },
+  { _id: "brand-fagor",             name: "Fagor",              logoUrl: "/assets/Brands/fagor logo.png" },
+  { _id: "brand-hoover",            name: "Hoover",             logoUrl: "/assets/Brands/Hoover.png" },
+  { _id: "brand-ariston",           name: "Ariston",            logoUrl: "/assets/Brands/Ariston.png" },
+  { _id: "brand-daewoo",            name: "Daewoo",             logoUrl: "/assets/Brands/DAEWOO.png" },
+  { _id: "brand-kelvinator",        name: "Kelvinator",         logoUrl: "/assets/Brands/kelvinator.png" },
+  { _id: "brand-siltal",            name: "Siltal",             logoUrl: "/assets/Brands/siltal.png" },
+  { _id: "brand-westinghouse",      name: "Westinghouse",       logoUrl: "/assets/Brands/westinghouse.png" },
+  { _id: "brand-frigidaire",        name: "Frigidaire",         logoUrl: "/assets/Brands/Frigidaire.png" },
+  { _id: "brand-alaska",            name: "Alaska",             logoUrl: "/assets/Brands/Alaska.png" },
+  { _id: "brand-candy",             name: "Candy",              logoUrl: "/assets/Brands/candy.png" },
+  { _id: "brand-admiral",           name: "Admiral",            logoUrl: "/assets/Brands/admiral.png" },
+  { _id: "brand-haier",             name: "Haier",              logoUrl: "/assets/Brands/Haier.png" },
+  { _id: "brand-hisense",           name: "Hisense",            logoUrl: "/assets/Brands/Hisense.png" },
 ];
 
 export const fallbackServices = [
@@ -135,4 +167,3 @@ export const fallbackTestimonials = [
     rating: 5,
   },
 ];
-
