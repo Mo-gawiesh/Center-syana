@@ -8,8 +8,6 @@
   background-color: var(--background-admin);
   color: var(--foreground-admin);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Base button and form resets for admin panel since we disabled Preflight */
