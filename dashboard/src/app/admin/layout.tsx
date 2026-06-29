@@ -6,6 +6,7 @@ import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useState } from "react";
+import "../globals.css";
 
 const NAV_ITEMS = [
   { name: "لوحة التحكم", href: "/admin", icon: "📊" },
