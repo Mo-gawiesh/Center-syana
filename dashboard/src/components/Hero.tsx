@@ -1,13 +1,21 @@
 import Link from "next/link";
+import BrandsMarquee from "./BrandsMarquee";
 import TypingWord from "./TypingWord";
+
+interface Brand {
+  _id: string;
+  name: string;
+  logoUrl?: string;
+}
 
 interface HeroProps {
   heroTitle?: string;
   heroSubtitle?: string;
   hotline: string;
+  brands: Brand[];
 }
 
-export default function Hero({ heroTitle, heroSubtitle, hotline }: HeroProps) {
+export default function Hero({ heroTitle, heroSubtitle, hotline, brands }: HeroProps) {
   return (
     <section className="hero" id="home" aria-label="قسم الترحيب">
       <div className="hero-bg" aria-hidden="true">
@@ -22,33 +30,15 @@ export default function Hero({ heroTitle, heroSubtitle, hotline }: HeroProps) {
           </div>
 
           <h1 className="hero-title reveal revealed delay-1">
-            {heroTitle ? (
-              <>
-                {heroTitle.split(" - ")[0] || heroTitle}
-                <br />
-                <span className="highlight">
-                  صيانة متخصصة <TypingWord />
-                  <span className="typing-cursor" aria-hidden="true"></span>
-                </span>
-              </>
-            ) : (
-              <>
-                الهندسية للتوكيلات
-                <br />
-                <span className="highlight">
-                  صيانة متخصصة <TypingWord />
-                  <span className="typing-cursor" aria-hidden="true"></span>
-                </span>
-              </>
-            )}
+            {heroTitle || "الهندسية للتوكيلات"}
+            <br />
+            <span className="highlight">صيانة متخصصة <TypingWord /><span className="typing-cursor" aria-hidden="true"></span></span>
           </h1>
 
           <p className="hero-desc reveal revealed delay-2">
-            {heroSubtitle ||
-              "مركز الصيانة المعتمد الأول في مصر لجميع الأجهزة المنزلية. نوفر لك خدمة احترافية فورية داخل منزلك بقطع غيار أصلية 100% وضمان معتمد."}
+            {heroSubtitle || "مركز الصيانة المعتمد الأول في مصر لجميع الأجهزة المنزلية. نوفر لك خدمة احترافية فورية داخل منزلك بقطع غيار أصلية 100% وضمان معتمد."}
           </p>
 
-          {/* Stats Row */}
           <div className="hero-stats reveal revealed delay-3" aria-label="إحصائيات الشركة">
             <div className="hero-stat">
               <span className="hero-stat-num">+20</span>
@@ -68,7 +58,6 @@ export default function Hero({ heroTitle, heroSubtitle, hotline }: HeroProps) {
             </div>
           </div>
 
-          {/* CTAs */}
           <div className="hero-actions reveal revealed delay-4">
             <Link href="/contact" className="btn btn-primary btn-lg" aria-label="طلب صيانة فورية">
               طلب صيانة فورية
@@ -76,7 +65,7 @@ export default function Hero({ heroTitle, heroSubtitle, hotline }: HeroProps) {
             <span className="hero-action-text">أو اتصل بنا مباشرة على الخط الساخن: {hotline || "16481"}</span>
           </div>
         </div>
-        
+
         <div className="hero-image-wrap reveal revealed delay-3">
           <img
             src="/assets/Main photos/Hero Section.jpeg"
@@ -88,6 +77,12 @@ export default function Hero({ heroTitle, heroSubtitle, hotline }: HeroProps) {
           />
         </div>
       </div>
+
+      {brands.length > 0 && (
+        <div className="hero-brands" aria-label="الماركات المعتمدة">
+          <BrandsMarquee brands={brands} />
+        </div>
+      )}
     </section>
   );
 }

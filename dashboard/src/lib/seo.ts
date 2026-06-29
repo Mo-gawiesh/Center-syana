@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { getSiteConfig } from "./api";
 
 export async function generateSiteMetadata(pageTitle?: string, pageDescription?: string): Promise<Metadata> {
@@ -7,7 +7,7 @@ export async function generateSiteMetadata(pageTitle?: string, pageDescription?:
     const seo = settings?.seo || {};
     const general = settings?.general || {};
 
-    const title = pageTitle 
+    const title = pageTitle
       ? `${pageTitle} | ${seo.metaTitle || general.companyName || "الهندسية للتوكيلات"}`
       : seo.metaTitle || general.companyName || "الهندسية للتوكيلات";
 
@@ -29,7 +29,7 @@ export async function generateSiteMetadata(pageTitle?: string, pageDescription?:
       other: {
         "geo.region": "EG",
         "language": "Arabic",
-      }
+      },
     };
   } catch (error) {
     console.error("Error generating metadata:", error);

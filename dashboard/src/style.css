@@ -2227,6 +2227,12 @@ button {
   }
 }
 
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
 .brand-faq {
   margin-top: var(--sp-6);
 }
@@ -3247,4 +3253,29 @@ button {
 
 .back-to-top-btn:hover svg {
   transform: translateY(-2px);
+}
+
+/* ================================================
+   TYPING CURSOR (Hero section typing effect)
+   ================================================ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--clr-primary);
+  margin-inline-start: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor {
+    animation: none;
+    opacity: 1;
+  }
 }

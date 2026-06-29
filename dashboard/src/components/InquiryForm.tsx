@@ -1,22 +1,18 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
-import { useMutation, useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
 
 interface InquiryFormProps {
-  companyId: string;
+  companyId?: string;
   whatsappNumber?: string;
 }
 
-export default function InquiryForm({ companyId, whatsappNumber = "201062842903" }: InquiryFormProps) {
+export default function InquiryForm({ whatsappNumber = "201062842903" }: InquiryFormProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
   const [appliance, setAppliance] = useState("ثلاجات");
   const [loading, setLoading] = useState(false);
-
-  const createRequest = useMutation(api.requests.createRequestPublic);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,46 +20,22 @@ export default function InquiryForm({ companyId, whatsappNumber = "201062842903"
 
     setLoading(true);
 
-    const redirectWhatsApp = () => {
-      const message = `طلب صيانة جديد 🛠️
-- الاسم: ${name}
-- رقم الهاتف: ${phone}
-- المحافظة/المدينة: ${location}
-- الجهاز المراد صيانته: ${appliance}`;
+    const message = `طلب صيانة جديد 🛠️\n- الاسم: ${name}\n- رقم الهاتف: ${phone}\n- المحافظة/المدينة: ${location}\n- الجهاز المراد صيانته: ${appliance}`;
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
-      // Bypass pop-up blocker
-      const link = document.createElement("a");
-      link.href = url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      // Reset
-      setName("");
-      setPhone("");
-      setLocation("");
-      setAppliance("ثلاجات");
-      setLoading(false);
-    };
-
-    try {
-      await createRequest({
-        companyId: companyId as any,
-        name,
-        phone,
-        location,
-        appliance,
-      });
-      redirectWhatsApp();
-    } catch (err) {
-      console.error("Failed to save request to Convex", err);
-      // Fallback: still redirect to WhatsApp
-      redirectWhatsApp();
-    }
+    setName("");
+    setPhone("");
+    setLocation("");
+    setAppliance("ثلاجات");
+    setLoading(false);
   };
 
   return (

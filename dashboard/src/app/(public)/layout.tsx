@@ -1,23 +1,23 @@
-import "../../style.css";
-import { getSiteConfig } from "../../lib/api";
+import type { ReactNode } from "react";
 import Topbar from "../../components/Topbar";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import SiteScripts from "../../components/SiteScripts";
+import { fallbackBrands, fallbackSettings } from "../../lib/static-site";
+import "../../style.css";
 
-export default async function PublicLayout({
+export default function PublicLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const { settings, brands } = await getSiteConfig("published");
-  
-  const contact = settings?.contact || {};
-  const social = settings?.social || {};
-  const general = settings?.general || {};
+  const contact = fallbackSettings.contact;
+  const social = fallbackSettings.social;
+  const general = fallbackSettings.general;
 
-  const brandItems = brands.map((b: any) => ({
-    name: b.name,
-    slug: b.name.toLowerCase().replace(/\s+/g, "-"),
+  const brandItems = fallbackBrands.map((brand) => ({
+    name: brand.name,
+    slug: brand.name.toLowerCase().replace(/\s+/g, "-"),
   }));
 
   return (
@@ -34,18 +34,17 @@ export default async function PublicLayout({
         phone={contact.phone}
         brands={brandItems}
       />
-      <main id="main-content">
-        {children}
-      </main>
+      <main id="main-content">{children}</main>
       <Footer
         logoUrl={general.logoMediaId}
         hotline={contact.hotline}
         phone={contact.phone}
         address={contact.address}
         workingHours={contact.workingHours}
-        whatsapp={social.whatsapp}
+        whatsapp={social.whatsapp || "201062842903"}
         brands={brandItems}
       />
+      <SiteScripts />
     </div>
   );
 }
