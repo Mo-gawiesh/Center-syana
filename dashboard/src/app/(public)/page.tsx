@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Hero from "../../components/Hero";
 import OffersStrip from "../../components/OffersStrip";
 import ServicesGrid from "../../components/ServicesGrid";
@@ -145,14 +145,14 @@ export default function HomePage() {
               نقدم خدمات صيانة متكاملة لجميع الأجهزة المنزلية الكبيرة والصغيرة. فريقنا مدرب على أعلى مستوى لتشخيص الأعطال فوراً وإصلاحها بالمنزل باستخدام أفضل المعدات وقطع الغيار الأصلية.
             </p>
             <ServicesGrid services={fallbackServices} variant="overview" />
-            <div style={{ marginTop: "var(--sp-8)" }}>
-              <Link href="/services" className="btn btn-outline" aria-label="عرض جميع الخدمات بالتفصيل">
+            <div style={{ marginTop: "var(--sp-4)" }}>
+              <Link href="/services" className="btn btn-primary" aria-label="عرض جميع الخدمات بالتفصيل">
                 عرض جميع الخدمات بالتفصيل ←
               </Link>
             </div>
           </div>
-          <div className="services-overview-image-wrap reveal revealed delay-1">
-            <img src="/assets/Main photos/Air Conditioner Maintenance.jpeg" width="1200" height="800" alt="صيانة تكييفات الهندسية للتوكيلات" className="services-overview-img" loading="lazy" />
+          <div className="services-overview-image-wrap reveal revealed delay-2">
+            <img src="/assets/Main photos/Technician Portrait.jpeg" width="1200" height="669" alt="فني صيانة الهندسية للتوكيلات" className="services-overview-image" loading="lazy" />
           </div>
         </div>
       </section>
