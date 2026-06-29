@@ -177,64 +177,86 @@ export default function BrandsCMSPage() {
           </p>
           <button
             onClick={handleOpenNew}
-            className="rounded-lg bg-slate-800 border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 hover:bg-slate-750 cursor-pointer"
+            className="rounded-lg bg-emerald-600 border border-emerald-500 px-4 py-2 text-sm font-medium text-slate-100 hover:bg-emerald-500 cursor-pointer transition-colors shadow-lg shadow-emerald-500/20"
           >
-            إضافة ماركة
+            + إضافة ماركة
           </button>
         </div>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {brands.map((brand) => (
-            <div
-              key={brand._id}
-              className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/30 p-5 backdrop-blur-xl transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/50"
-            >
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="relative flex h-20 w-32 items-center justify-center rounded-lg bg-slate-950/40 p-2 border border-slate-800">
-                  {brand.logoUrl ? (
-                    <img
-                      src={brand.logoUrl}
-                      alt={brand.name}
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  ) : (
-                    <span className="text-2xl">🏷️</span>
-                  )}
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-slate-200">{brand.name}</h3>
-                  <div className="mt-2 flex items-center justify-center gap-2 text-xs">
-                    <span className="text-slate-400">الترتيب: {brand.order || 0}</span>
-                    <span
-                      className={`rounded px-1.5 py-0.5 font-semibold ${
-                        brand.status === "published"
-                          ? "bg-emerald-500/10 text-emerald-400"
-                          : "bg-amber-500/10 text-amber-400"
-                      }`}
-                    >
-                      {brand.status === "published" ? "نشط" : "مسودة"}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex w-full items-center justify-center gap-2 border-t border-slate-800/80 pt-4">
-                  <button
-                    onClick={() => handleOpenEdit(brand)}
-                    className="flex-1 rounded-md bg-slate-800 py-1.5 text-xs font-medium text-slate-200 hover:bg-slate-700 transition cursor-pointer"
+        <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl shadow-xl">
+          <div className="overflow-x-auto">
+            <table className="w-full text-right text-sm">
+              <thead>
+                <tr className="border-b border-slate-800 bg-slate-900/50 text-slate-400">
+                  <th className="py-4 px-6 font-semibold w-24">الشعار</th>
+                  <th className="py-4 px-6 font-semibold">الماركة</th>
+                  <th className="py-4 px-6 font-semibold">الترتيب</th>
+                  <th className="py-4 px-6 font-semibold">الحالة</th>
+                  <th className="py-4 px-6 font-semibold w-32">الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60">
+                {brands.map((brand) => (
+                  <tr
+                    key={brand._id}
+                    className="group transition-colors hover:bg-slate-800/30"
                   >
-                    تعديل
-                  </button>
-                  <button
-                    onClick={() => handleDelete(brand._id)}
-                    className="rounded-md bg-rose-500/15 py-1.5 px-3 text-xs font-medium text-rose-400 hover:bg-rose-500/25 transition cursor-pointer"
-                  >
-                    حذف
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+                    <td className="py-3 px-6">
+                      <div className="flex h-12 w-20 items-center justify-center rounded-lg bg-slate-950/60 p-2 border border-slate-800 group-hover:border-slate-700 transition-colors">
+                        {brand.logoUrl ? (
+                          <img
+                            src={brand.logoUrl}
+                            alt={brand.name}
+                            className="max-h-full max-w-full object-contain"
+                          />
+                        ) : (
+                          <span className="text-xl">🏷️</span>
+                        )}
+                      </div>
+                    </td>
+                    <td className="py-3 px-6 font-bold text-slate-200">
+                      {brand.name}
+                    </td>
+                    <td className="py-3 px-6 text-slate-400 font-medium">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800/50 text-xs">
+                        {brand.order || 0}
+                      </div>
+                    </td>
+                    <td className="py-3 px-6">
+                      <span
+                        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold border ${
+                          brand.status === "published"
+                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                            : "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                        }`}
+                      >
+                        <span className={`h-1.5 w-1.5 rounded-full ${brand.status === "published" ? "bg-emerald-400" : "bg-amber-400"}`}></span>
+                        {brand.status === "published" ? "نشط" : "مسودة"}
+                      </span>
+                    </td>
+                    <td className="py-3 px-6">
+                      <div className="flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100">
+                        <button
+                          onClick={() => handleOpenEdit(brand)}
+                          className="rounded-lg bg-slate-800 p-2 text-slate-300 hover:bg-emerald-500 hover:text-slate-950 transition-colors cursor-pointer"
+                          title="تعديل"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(brand._id)}
+                          className="rounded-lg bg-slate-800 p-2 text-slate-300 hover:bg-rose-500 hover:text-white transition-colors cursor-pointer"
+                          title="حذف"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
