@@ -64,18 +64,30 @@ export default function ServicesGrid({ services, variant = "overview", hotline =
             />
             <h3 className="service-title">{service.title}</h3>
             
-            <p
-              className="service-card-desc"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--clr-text-muted)",
-                lineHeight: "1.6",
-                marginBottom: "var(--sp-4)",
-                textAlign: "right",
-              }}
-            >
-              {service.description}
-            </p>
+            {service.description.includes("\n") ? (
+              <ul className="service-problems" aria-label={`أعطال ${service.title} الشائعة`} style={{ marginBottom: "var(--sp-4)" }}>
+                {service.description.split("\n").map((line, idx) => (
+                  line.trim() && (
+                    <li key={idx} className="service-problem">
+                      {line.trim()}
+                    </li>
+                  )
+                ))}
+              </ul>
+            ) : (
+              <p
+                className="service-card-desc"
+                style={{
+                  fontSize: "var(--text-sm)",
+                  color: "var(--clr-text-muted)",
+                  lineHeight: "1.6",
+                  marginBottom: "var(--sp-4)",
+                  textAlign: "right",
+                }}
+              >
+                {service.description}
+              </p>
+            )}
 
             <a href={`tel:${hotline}`} className="btn btn-outline">
               اطلب صيانة الآن ←

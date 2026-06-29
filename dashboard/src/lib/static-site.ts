@@ -91,37 +91,37 @@ export const fallbackServices = [
   {
     _id: "service-fridge",
     title: "صيانة الثلاجات",
-    description: "تشخيص أعطال التبريد، الشحن، وحلول الترموستات والفريون.",
+    description: "الثلاجة مش بتبرد\nصوت الموتور عالي\nتجمع جليد زيادة\nمشكلة الترموستات\nتسريب فريون",
     imageUrl: "/assets/Products/refrigerator.png",
   },
   {
     _id: "service-washer",
     title: "صيانة الغسالات",
-    description: "حل مشاكل الدوران، التسريب، لوحات التحكم، والموتور.",
+    description: "الغسالة مش بتشتغل\nطبلة مش بتدور\nمشكلة في التصريف\nتسريب ماء\nضوضاء أثناء التشغيل",
     imageUrl: "/assets/Products/Washer.png",
+  },
+  {
+    _id: "service-freezer",
+    title: "صيانة ديب فريزر",
+    description: "الفريزر مش بيجمد\nارتفاع درجة الحرارة\nمشكلة في الكمبريسور\nالباب مش بيقفل\nتسريب غاز فريون",
+    imageUrl: "/assets/Products/Chest Freezer.png",
   },
   {
     _id: "service-ac",
     title: "صيانة التكييفات",
-    description: "تنظيف، شحن فريون، معالجة ضعف التبريد، وصيانة دورية كاملة.",
+    description: "التكييف مش بيبرد\nضعف الهواء\nشحن فريون\nصيانة دورية وتنظيف\nمشكلة الريموت",
     imageUrl: "/assets/Products/conditioning.png",
   },
   {
     _id: "service-dishwasher",
     title: "صيانة غسالات الأطباق",
-    description: "إصلاح مشاكل الفلتر، الرشاشات، وتصريف المياه.",
+    description: "غسالة أطباق مش بتنظف\nمشكلة تصريف المياه\nتسريب مياه من الغسالة\nأصوات غريبة أثناء التشغيل\nعطل في طلمبة المياه",
     imageUrl: "/assets/Products/Dishwasher.png",
-  },
-  {
-    _id: "service-freezer",
-    title: "صيانة ديب فريزر",
-    description: "معالجة ضعف التجميد، المؤشرات، والدوائر الداخلية.",
-    imageUrl: "/assets/Products/Chest Freezer.png",
   },
   {
     _id: "service-cooker",
     title: "صيانة بوتاجازات",
-    description: "إصلاح الشعلات، الإشعال الذاتي، وتسربات الغاز البسيطة.",
+    description: "الشعلات لا تعمل\nتسرب غاز خفيف\nفرن البوتاجاز لا يعمل\nمفاتيح البوتاجاز ثقيلة\nمشكلة بالإشعال الذاتي",
     imageUrl: "/assets/Products/Gas Cooker.png",
   },
 ];
