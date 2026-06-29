@@ -197,46 +197,23 @@ export default async function BrandDetailPage({ params }: PageProps) {
       </section>
 
       {/* Inquiry Form */}
-      <section className="section contact" id="contact" aria-labelledby="contact-heading">
-        <div className="container">
-          <div className="reveal revealed" style={{ textAlign: "center" }}>
-            <p className="section-label">تواصل معنا</p>
-            <h2 className="section-title" id="contact-heading">حجز صيانة <span>{brandName}</span> فورية</h2>
+      <section className="section cta-section" id="contact" aria-labelledby="contact-heading">
+        <div className="container cta-form-container reveal revealed">
+          {/* Left Side: Info & Hotline */}
+          <div className="cta-form-info">
+            <h2 className="cta-form-title" id="contact-heading">حجز صيانة <span>{brandName}</span> فورية</h2>
+            <p className="cta-form-subtitle">
+              نوفر لك الدعم الفني الكامل لصيانة أجهزة {brandName} بالضمان المعتمد والقطع الأصلية في جميع المحافظات.
+            </p>
+            <div className="cta-form-hotline-card">
+              <span className="hotline-label">الخط الساخن المباشر لـ {brandName}</span>
+              <a href={`tel:${contact.hotline || "16481"}`} className="hotline-btn">📞 {contact.hotline || "16481"} — اتصل الآن</a>
+            </div>
           </div>
 
-          <div className="contact-grid">
-            <div className="contact-info reveal revealed">
-              <h3 className="contact-info-title">صيانة {brandName} بمصر</h3>
-              <p className="contact-info-desc">نوفر لك الدعم الفني الكامل لصيانة أجهزة {brandName} بالضمان المعتمد والقطع الأصلية.</p>
-              
-              <div className="contact-info-list" role="list">
-                <div className="contact-info-item" role="listitem">
-                  <div className="contact-info-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="contact-item-label">رقم صيانة {brandName}</div>
-                    <a href={`tel:${contact.hotline || "16481"}`} className="contact-item-value">{contact.hotline || "16481"}</a>
-                  </div>
-                </div>
-
-                <div className="contact-info-item" role="listitem">
-                  <div className="contact-info-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="contact-item-label">العنوان</div>
-                    <div className="contact-item-value">{contact.address || "المهندسين، الجيزة"}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          {/* Right Side: Form Card */}
+          <div className="cta-form-card">
+            <h3 className="form-card-title">نموذج طلب الصيانة</h3>
             <InquiryForm companyId={company._id} whatsappNumber={social.whatsapp} />
           </div>
         </div>

@@ -1,26 +1,25 @@
-@import "tailwindcss";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Scope admin theme variables and body resets to the .admin-site wrapper */
+.admin-site {
+  --background-admin: #0f172a; /* Slate 900 */
+  --foreground-admin: #f1f5f9; /* Slate 100 */
+  background-color: var(--background-admin);
+  color: var(--foreground-admin);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base button and form resets for admin panel since we disabled Preflight */
+.admin-site button {
+  cursor: pointer;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.admin-site input,
+.admin-site select,
+.admin-site textarea {
+  background: transparent;
+  border: 1px solid #334155; /* slate-700 */
+  color: inherit;
 }

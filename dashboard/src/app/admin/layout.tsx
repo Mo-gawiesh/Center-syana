@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   // 1. Loading state
   if (!clerkLoaded || roleData === undefined) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-100">
+      <div className="admin-site flex min-h-screen items-center justify-center bg-slate-950 text-slate-100">
         <div className="flex flex-col items-center gap-4">
           <div className="h-12 w-12 animate-spin rounded-full border-4 border-emerald-500 border-t-transparent"></div>
           <p className="text-lg font-medium">جاري تحميل لوحة التحكم...</p>
@@ -66,7 +66,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     };
 
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 text-slate-100">
+      <div className="admin-site flex min-h-screen items-center justify-center bg-slate-950 px-4 text-slate-100">
         <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-8 text-center shadow-xl">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-3xl text-emerald-500">
             🔐
@@ -104,7 +104,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   // 3. Authorized Admin panel layout
   return (
-    <div className="flex min-h-screen bg-slate-950 text-slate-100">
+    <div className="admin-site flex min-h-screen bg-slate-950 text-slate-100">
       {/* Desktop Sidebar (Fixed on the right in RTL) */}
       <aside className="hidden w-64 border-l border-slate-900 bg-slate-900/50 backdrop-blur-xl lg:block">
         <div className="flex h-16 items-center justify-between border-b border-slate-900 px-6">
