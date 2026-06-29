@@ -1828,8 +1828,26 @@ button {
 }
 
 @media (max-width: 576px) {
+  .cta-form-container {
+    padding: var(--sp-4) var(--sp-2); /* 32px top/bottom, 16px left/right */
+  }
+
+  .cta-form-card {
+    padding: var(--sp-4); /* 32px padding instead of 48px */
+  }
+
   .form-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .cta-form-container {
+    padding: var(--sp-3) var(--sp-1); /* 24px top/bottom, 8px left/right */
+  }
+
+  .cta-form-card {
+    padding: var(--sp-3); /* 24px padding instead of 32px */
   }
 }
 
@@ -2684,24 +2702,33 @@ button {
 }
 
 
-/* Floating Call Button */
-.floating-call-btn {
+/* Floating Call & WhatsApp Buttons */
+.floating-call-btn,
+.floating-whatsapp-btn {
   position: fixed;
-  bottom: 24px;
   left: 24px;
   width: 56px;
   height: 56px;
-  background-color: #0f9f2e;
-  /* green */
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(15, 159, 46, 0.4);
   z-index: 999;
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.floating-call-btn {
+  bottom: 24px;
+  background-color: #0f9f2e; /* green */
+  box-shadow: 0 4px 15px rgba(15, 159, 46, 0.4);
+}
+
+.floating-whatsapp-btn {
+  bottom: 92px; /* right above call button */
+  background-color: #25D366; /* WhatsApp green */
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
 }
 
 .floating-call-btn:hover {
@@ -2710,28 +2737,39 @@ button {
   box-shadow: 0 6px 20px rgba(15, 159, 46, 0.6);
 }
 
+.floating-whatsapp-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  background-color: #20ba5a;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
 .floating-call-btn svg {
   width: 28px;
   height: 28px;
   stroke: currentColor;
 }
 
-/* Tooltip label */
-.floating-call-btn .tooltip-text {
+.floating-whatsapp-btn svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+/* Tooltip labels */
+.floating-call-btn .tooltip-text,
+.floating-whatsapp-btn .tooltip-text {
   visibility: hidden;
   opacity: 0;
   width: max-content;
   white-space: nowrap;
-  background-color: #334155;
-  /* slate-700 */
+  background-color: #334155; /* slate-700 */
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 8px 12px;
   position: absolute;
   z-index: 1000;
-  left: 70px;
-  /* To the right of the button */
+  left: 70px; /* To the right of the button */
   top: 50%;
   transform: translateY(-50%);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -2743,7 +2781,8 @@ button {
 }
 
 /* Arrow pointing left */
-.floating-call-btn .tooltip-text::after {
+.floating-call-btn .tooltip-text::after,
+.floating-whatsapp-btn .tooltip-text::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -2754,9 +2793,43 @@ button {
   border-color: transparent #334155 transparent transparent;
 }
 
-.floating-call-btn:hover .tooltip-text {
+.floating-call-btn:hover .tooltip-text,
+.floating-whatsapp-btn:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* Responsive Floating Buttons */
+@media (max-width: 768px) {
+  .floating-call-btn,
+  .floating-whatsapp-btn {
+    left: 16px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .floating-call-btn {
+    bottom: 16px;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 76px; /* 16px + 48px + 12px gap = 76px */
+  }
+
+  .floating-call-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .floating-call-btn .tooltip-text,
+  .floating-whatsapp-btn .tooltip-text {
+    left: 60px;
+  }
 }
 
 
