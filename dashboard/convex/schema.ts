@@ -89,4 +89,42 @@ export default defineSchema({
   })
     .index("by_clerkUserId", ["clerkUserId"])
     .index("by_company_clerkUserId", ["companyId", "clerkUserId"]),
+
+  brands: defineTable({
+    companyId: v.id("companies"),
+    name: v.string(),
+    logoMediaId: v.optional(v.string()),
+    logoUrl: v.optional(v.string()),
+    order: v.optional(v.number()),
+    status: v.string(), // "draft" | "published"
+  }).index("by_company_status", ["companyId", "status"]),
+
+  services: defineTable({
+    companyId: v.id("companies"),
+    title: v.string(),
+    description: v.string(),
+    icon: v.optional(v.string()),
+    imageMediaId: v.optional(v.string()),
+    imageUrl: v.optional(v.string()),
+    order: v.optional(v.number()),
+    status: v.string(), // "draft" | "published"
+  }).index("by_company_status", ["companyId", "status"]),
+
+  faqs: defineTable({
+    companyId: v.id("companies"),
+    question: v.string(),
+    answer: v.string(),
+    order: v.optional(v.number()),
+    status: v.string(), // "draft" | "published"
+  }).index("by_company_status", ["companyId", "status"]),
+
+  testimonials: defineTable({
+    companyId: v.id("companies"),
+    name: v.string(),
+    role: v.optional(v.string()),
+    content: v.string(),
+    rating: v.number(),
+    order: v.optional(v.number()),
+    status: v.string(), // "draft" | "published"
+  }).index("by_company_status", ["companyId", "status"]),
 });

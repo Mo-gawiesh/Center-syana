@@ -68,14 +68,15 @@ http.route({
     }
 
     // Load settings document based on draft/published status
-    const status = preview ? "draft" : "published";
+    let status = preview ? "draft" : "published";
     let settings = await ctx.runQuery(api.settings.getSettingsPublic, { 
       companyId: company._id, 
       status 
     });
 
-    if (!settings) {
+    if (!settings && !preview) {
       // If published is not found, fallback to draft
+      status = "draft";
       settings = await ctx.runQuery(api.settings.getSettingsPublic, { 
         companyId: company._id, 
         status: "draft" 
@@ -86,7 +87,20 @@ http.route({
       return corsResponse({ error: "Site configuration not initialized" }, 404);
     }
 
-    return corsResponse({ company, settings });
+    // Load other site content dynamically based on the same status
+    const brands = await ctx.runQuery(api.brands.getBrandsPublic, { companyId: company._id, status });
+    const services = await ctx.runQuery(api.services.getServicesPublic, { companyId: company._id, status });
+    const faqs = await ctx.runQuery(api.faqs.getFaqsPublic, { companyId: company._id, status });
+    const testimonials = await ctx.runQuery(api.testimonials.getTestimonialsPublic, { companyId: company._id, status });
+
+    return corsResponse({ 
+      company, 
+      settings,
+      brands,
+      services,
+      faqs,
+      testimonials
+    });
   }),
 });
 

@@ -9,13 +9,17 @@
  */
 
 import type * as auth from "../auth.js";
+import type * as brands from "../brands.js";
 import type * as companies from "../companies.js";
+import type * as faqs from "../faqs.js";
 import type * as http from "../http.js";
 import type * as logs from "../logs.js";
 import type * as media from "../media.js";
 import type * as requests from "../requests.js";
 import type * as seed from "../seed.js";
+import type * as services from "../services.js";
 import type * as settings from "../settings.js";
+import type * as testimonials from "../testimonials.js";
 import type * as users from "../users.js";
 
 import type {
@@ -26,13 +30,17 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  brands: typeof brands;
   companies: typeof companies;
+  faqs: typeof faqs;
   http: typeof http;
   logs: typeof logs;
   media: typeof media;
   requests: typeof requests;
   seed: typeof seed;
+  services: typeof services;
   settings: typeof settings;
+  testimonials: typeof testimonials;
   users: typeof users;
 }>;
 
