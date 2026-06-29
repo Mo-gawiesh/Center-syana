@@ -4,6 +4,98 @@
  */
 
 /* ================================================
+   0. DYNAMIC CONFIGURATION & PROGRESSIVE ENHANCEMENT
+   ================================================ */
+(function initDynamicSettings() {
+  const companySlug = 'center-syana';
+  
+  fetch(`https://disciplined-mammoth-791.eu-west-1.convex.site/public/site-config?slug=${companySlug}`)
+    .then(res => res.json())
+    .then(data => {
+      if (!data || !data.settings) return;
+      const settings = data.settings;
+
+      if (settings.general.logoMediaId) {
+        document.querySelectorAll('.navbar-logo-img, .footer img').forEach(img => {
+          if (img.src.includes('logo.png')) {
+            img.src = settings.general.logoMediaId;
+          }
+        });
+      }
+
+      if (settings.contact.hotline) {
+        document.querySelectorAll('a[href^="tel:16481"]').forEach(a => {
+          a.href = `tel:${settings.contact.hotline}`;
+          if (a.textContent.includes('16481')) {
+            a.innerHTML = a.innerHTML.replace('16481', settings.contact.hotline);
+          }
+        });
+      }
+      
+      if (settings.contact.phone) {
+        document.querySelectorAll('a[href^="tel:010"]').forEach(a => {
+          if (a.href.includes('01068429404') || a.href.includes('01062842903')) {
+            a.href = `tel:${settings.contact.phone}`;
+            a.textContent = settings.contact.phone;
+          }
+        });
+      }
+
+      if (settings.social.whatsapp) {
+        window.whatsappNumber = settings.social.whatsapp;
+      }
+
+      if (settings.contact.address) {
+        document.querySelectorAll('.topbar-item, .footer-brand-desc').forEach(el => {
+          if (el.textContent.includes('المهندسين')) {
+            el.innerHTML = el.innerHTML.replace('المهندسين، الجيزة', settings.contact.address);
+          }
+        });
+      }
+      
+      if (settings.contact.workingHours) {
+        document.querySelectorAll('.topbar-item').forEach(el => {
+          if (el.textContent.includes('السبت')) {
+            el.innerHTML = el.innerHTML.replace('السبت – الخميس: 9 ص – 10 م', settings.contact.workingHours);
+          }
+        });
+      }
+
+      if (settings.homepage.heroTitle) {
+        const heroTitleEl = document.querySelector('.hero-title, .brand-hero-title');
+        if (heroTitleEl) {
+          heroTitleEl.textContent = settings.homepage.heroTitle;
+        }
+      }
+      if (settings.homepage.heroSubtitle) {
+        const heroSubtitleEl = document.querySelector('.hero-subtitle, .brand-hero-subtitle');
+        if (heroSubtitleEl) {
+          heroSubtitleEl.textContent = settings.homepage.heroSubtitle;
+        }
+      }
+
+      if (settings.homepage.statistics && settings.homepage.statistics.length >= 3) {
+        const counterElements = document.querySelectorAll('[data-count]');
+        counterElements.forEach((el, index) => {
+          const stat = settings.homepage.statistics[index];
+          if (stat) {
+            const numVal = parseInt(stat.value.replace(/[^0-9]/g, ''), 10);
+            const suffix = stat.value.replace(/[0-9]/g, '');
+            el.dataset.count = numVal;
+            el.dataset.suffix = suffix;
+            
+            const labelEl = el.closest('.stats-card, .stats-strip-card')?.querySelector('.stats-label, p');
+            if (labelEl) {
+              labelEl.textContent = stat.label;
+            }
+          }
+        });
+      }
+    })
+    .catch(err => console.error("Error loading dynamic settings from Convex", err));
+})();
+
+/* ================================================
    1. SCROLL REVEAL
    ================================================ */
 (function initScrollReveal() {
@@ -292,7 +384,22 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const loc = document.getElementById('form-loc').value;
     const appliance = document.getElementById('form-appliance').value;
 
-    const whatsappNumber = '201062842903';
+    const whatsappNumber = window.whatsappNumber || '201062842903';
+    
+    // Save to Convex asynchronously (non-blocking)
+    fetch('https://disciplined-mammoth-791.eu-west-1.convex.site/public/submit-request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        companySlug: 'center-syana',
+        name: name,
+        phone: phone,
+        location: loc,
+        appliance: appliance
+      })
+    }).catch(err => console.error("Failed to save repair request to Convex", err));
     
     // Create the message
     const message = `طلب صيانة جديد 🛠️
