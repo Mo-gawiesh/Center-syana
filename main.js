@@ -245,3 +245,69 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+/* ================================================
+   9. BACK TO TOP BUTTON
+   ================================================ */
+(function initBackToTop() {
+  let btn = document.getElementById('back-to-top');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'back-to-top';
+    btn.className = 'back-to-top-btn';
+    btn.setAttribute('aria-label', 'الرجوع لأعلى الصفحة');
+    btn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+      </svg>
+    `;
+    document.body.appendChild(btn);
+  }
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  }, { passive: true });
+})();
+
+/* ================================================
+   10. INQUIRY FORM WHATSAPP REDIRECT
+   ================================================ */
+(function initInquiryForm() {
+  const form = document.getElementById('inquiry-form');
+  if (!form) return;
+
+  form.onsubmit = function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('form-name').value;
+    const phone = document.getElementById('form-phone').value;
+    const loc = document.getElementById('form-loc').value;
+    const appliance = document.getElementById('form-appliance').value;
+
+    const whatsappNumber = '201062842903';
+    
+    // Create the message
+    const message = `طلب صيانة جديد 🛠️
+- الاسم: ${name}
+- رقم الهاتف: ${phone}
+- المحافظة/المدينة: ${loc}
+- الجهاز المراد صيانته: ${appliance}`;
+
+    // Encode URL
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp in a new tab
+    window.open(url, '_blank');
+    
+    // Reset the form
+    form.reset();
+  };
+})();

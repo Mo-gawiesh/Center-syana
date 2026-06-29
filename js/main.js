@@ -276,3 +276,38 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   }, { passive: true });
 })();
+
+/* ================================================
+   10. INQUIRY FORM WHATSAPP REDIRECT
+   ================================================ */
+(function initInquiryForm() {
+  const form = document.getElementById('inquiry-form');
+  if (!form) return;
+
+  form.onsubmit = function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('form-name').value;
+    const phone = document.getElementById('form-phone').value;
+    const loc = document.getElementById('form-loc').value;
+    const appliance = document.getElementById('form-appliance').value;
+
+    const whatsappNumber = '201062842903';
+    
+    // Create the message
+    const message = `طلب صيانة جديد 🛠️
+- الاسم: ${name}
+- رقم الهاتف: ${phone}
+- المحافظة/المدينة: ${loc}
+- الجهاز المراد صيانته: ${appliance}`;
+
+    // Encode URL
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp in a new tab
+    window.open(url, '_blank');
+    
+    // Reset the form
+    form.reset();
+  };
+})();
