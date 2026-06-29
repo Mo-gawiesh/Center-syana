@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className="h-full antialiased">
-      <body className={`${cairo.className} min-h-full bg-slate-900 text-slate-100 flex flex-col`}>
+      <body className={cairo.className}>
         <ClerkProvider>
           <ConvexClientProvider>
             {children}
