@@ -49,11 +49,11 @@ export default function Navbar({ logoUrl, hotline, phone, brands }: NavbarProps)
             </li>
             <li>
               <div className="nav-dropdown" id="brands-dropdown">
-                <button
+                <Link
+                  href="/brands"
                   className="nav-dropdown-trigger"
-                  aria-haspopup="true"
-                  aria-expanded="false"
                   id="brands-btn"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
                 >
                   الماركات
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
@@ -63,7 +63,7 @@ export default function Navbar({ logoUrl, hotline, phone, brands }: NavbarProps)
                       clipRule="evenodd"
                     />
                   </svg>
-                </button>
+                </Link>
                 <div className="nav-dropdown-menu" role="menu" aria-label="قائمة الماركات">
                   <div className="nav-dropdown-grid">
                     {brands.map((brand) => (
