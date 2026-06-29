@@ -100,67 +100,69 @@ export const seedDatabase = mutation({
 
     // 5. Seed Brands
     const brandsToSeed = [
-      { name: "LG", logoUrl: "assets/Brands/LG Logo.png", order: 1 },
-      { name: "Bosch", logoUrl: "assets/Brands/bosch-logo-39982.png", order: 2 },
-      { name: "Sharp", logoUrl: "assets/Brands/SHARP Logo.png", order: 3 },
-      { name: "Samsung", logoUrl: "assets/Brands/samsung-logo-png-1286.png", order: 4 },
-      { name: "Kiriazi", logoUrl: "assets/Brands/Kiriazi.png", order: 5 },
-      { name: "Carrier", logoUrl: "assets/Brands/Carrier Logo.png", order: 6 },
-      { name: "Toshiba", logoUrl: "assets/Brands/Toshiba.png", order: 7 },
-      { name: "Fresh", logoUrl: "assets/Brands/Fresh.png", order: 8 },
-      { name: "Unionaire", logoUrl: "assets/Brands/union aire Logo.png", order: 9 },
-      { name: "Tornado", logoUrl: "assets/Brands/Tornado.png", order: 10 },
-      { name: "Midea", logoUrl: "assets/Brands/media.png", order: 11 },
-      { name: "White Westinghouse", logoUrl: "assets/Brands/White Westinghouse.png", order: 12 },
-      { name: "Panasonic", logoUrl: "assets/Brands/Panasonic.png", order: 13 },
-      { name: "Beko", logoUrl: "assets/Brands/Beko.png", order: 14 },
-      { name: "Zanussi", logoUrl: "assets/Brands/Zanussi.png", order: 15 },
-      { name: "Electrolux", logoUrl: "assets/Brands/Electrolux.png", order: 16 },
-      { name: "Indesit", logoUrl: "assets/Brands/Indesit.png", order: 17 },
-      { name: "Whirlpool", logoUrl: "assets/Brands/Whirlpool.png", order: 18 },
-      { name: "General Electric", logoUrl: "assets/Brands/GE.png", order: 19 },
-      { name: "White Whale", logoUrl: "assets/Brands/White Whale.png", order: 20 },
-      { name: "White Point", logoUrl: "assets/Brands/White Point.png", order: 21 },
-      { name: "Electrostar", logoUrl: "assets/Brands/Electrostar.png", order: 22 },
-      { name: "Siemens", logoUrl: "assets/Brands/Siemens.png", order: 23 },
-      { name: "Hitachi", logoUrl: "assets/Brands/hitachi logo.png", order: 24 },
-      { name: "Fagor", logoUrl: "assets/Brands/fagor logo.png", order: 25 },
-      { name: "Hoover", logoUrl: "assets/Brands/Hoover.png", order: 26 },
-      { name: "Ariston", logoUrl: "assets/Brands/Ariston.png", order: 27 },
-      { name: "Daewoo", logoUrl: "assets/Brands/DAEWOO.png", order: 28 },
-      { name: "Kelvinator", logoUrl: "assets/Brands/kelvinator.png", order: 29 },
-      { name: "Siltal", logoUrl: "assets/Brands/siltal.png", order: 30 },
-      { name: "Westinghouse", logoUrl: "assets/Brands/westinghouse.png", order: 31 },
-      { name: "Frigidaire", logoUrl: "assets/Brands/Frigidaire.png", order: 32 },
-      { name: "Alaska", logoUrl: "assets/Brands/Alaska.png", order: 33 },
-      { name: "Candy", logoUrl: "assets/Brands/candy.png", order: 34 },
-      { name: "Admiral", logoUrl: "assets/Brands/admiral.png", order: 35 },
-      { name: "Haier", logoUrl: "assets/Brands/Haier.png", order: 36 },
-      { name: "Hisense", logoUrl: "assets/Brands/Hisense.png", order: 37 },
+      { name: "LG", logoUrl: "/assets/Brands/LG Logo.png", order: 1 },
+      { name: "Bosch", logoUrl: "/assets/Brands/bosch-logo-39982.png", order: 2 },
+      { name: "Sharp", logoUrl: "/assets/Brands/SHARP Logo.png", order: 3 },
+      { name: "Samsung", logoUrl: "/assets/Brands/samsung-logo-png-1286.png", order: 4 },
+      { name: "Kiriazi", logoUrl: "/assets/Brands/Kiriazi.png", order: 5 },
+      { name: "Carrier", logoUrl: "/assets/Brands/Carrier Logo.png", order: 6 },
+      { name: "Toshiba", logoUrl: "/assets/Brands/Toshiba.png", order: 7 },
+      { name: "Fresh", logoUrl: "/assets/Brands/Fresh.png", order: 8 },
+      { name: "Unionaire", logoUrl: "/assets/Brands/union aire Logo.png", order: 9 },
+      { name: "Tornado", logoUrl: "/assets/Brands/Tornado.png", order: 10 },
+      { name: "Midea", logoUrl: "/assets/Brands/media.png", order: 11 },
+      { name: "White Westinghouse", logoUrl: "/assets/Brands/White Westinghouse.png", order: 12 },
+      { name: "Panasonic", logoUrl: "/assets/Brands/Panasonic.png", order: 13 },
+      { name: "Beko", logoUrl: "/assets/Brands/Beko.png", order: 14 },
+      { name: "Zanussi", logoUrl: "/assets/Brands/Zanussi.png", order: 15 },
+      { name: "Electrolux", logoUrl: "/assets/Brands/Electrolux.png", order: 16 },
+      { name: "Indesit", logoUrl: "/assets/Brands/Indesit.png", order: 17 },
+      { name: "Whirlpool", logoUrl: "/assets/Brands/Whirlpool.png", order: 18 },
+      { name: "General Electric", logoUrl: "/assets/Brands/GE.png", order: 19 },
+      { name: "White Whale", logoUrl: "/assets/Brands/White Whale.png", order: 20 },
+      { name: "White Point", logoUrl: "/assets/Brands/White Point.png", order: 21 },
+      { name: "Electrostar", logoUrl: "/assets/Brands/Electrostar.png", order: 22 },
+      { name: "Siemens", logoUrl: "/assets/Brands/Siemens.png", order: 23 },
+      { name: "Hitachi", logoUrl: "/assets/Brands/hitachi logo.png", order: 24 },
+      { name: "Fagor", logoUrl: "/assets/Brands/fagor logo.png", order: 25 },
+      { name: "Hoover", logoUrl: "/assets/Brands/Hoover.png", order: 26 },
+      { name: "Ariston", logoUrl: "/assets/Brands/Ariston.png", order: 27 },
+      { name: "Daewoo", logoUrl: "/assets/Brands/DAEWOO.png", order: 28 },
+      { name: "Kelvinator", logoUrl: "/assets/Brands/kelvinator.png", order: 29 },
+      { name: "Siltal", logoUrl: "/assets/Brands/siltal.png", order: 30 },
+      { name: "Westinghouse", logoUrl: "/assets/Brands/westinghouse.png", order: 31 },
+      { name: "Frigidaire", logoUrl: "/assets/Brands/Frigidaire.png", order: 32 },
+      { name: "Alaska", logoUrl: "/assets/Brands/Alaska.png", order: 33 },
+      { name: "Candy", logoUrl: "/assets/Brands/candy.png", order: 34 },
+      { name: "Admiral", logoUrl: "/assets/Brands/admiral.png", order: 35 },
+      { name: "Haier", logoUrl: "/assets/Brands/Haier.png", order: 36 },
+      { name: "Hisense", logoUrl: "/assets/Brands/Hisense.png", order: 37 },
     ];
 
-    const existingBrands = await ctx.db
+    // Delete existing brands to prevent duplicates and update with leading slash
+    const oldBrands = await ctx.db
       .query("brands")
       .withIndex("by_company_status", (q) => q.eq("companyId", companyId))
-      .first();
+      .collect();
+    for (const b of oldBrands) {
+      await ctx.db.delete(b._id);
+    }
 
-    if (!existingBrands) {
-      for (const brand of brandsToSeed) {
-        await ctx.db.insert("brands", {
-          companyId,
-          name: brand.name,
-          logoUrl: brand.logoUrl,
-          order: brand.order,
-          status: "published",
-        });
-        await ctx.db.insert("brands", {
-          companyId,
-          name: brand.name,
-          logoUrl: brand.logoUrl,
-          order: brand.order,
-          status: "draft",
-        });
-      }
+    for (const brand of brandsToSeed) {
+      await ctx.db.insert("brands", {
+        companyId,
+        name: brand.name,
+        logoUrl: brand.logoUrl,
+        order: brand.order,
+        status: "published",
+      });
+      await ctx.db.insert("brands", {
+        companyId,
+        name: brand.name,
+        logoUrl: brand.logoUrl,
+        order: brand.order,
+        status: "draft",
+      });
     }
 
     // 6. Seed Services
@@ -168,73 +170,75 @@ export const seedDatabase = mutation({
       {
         title: "صيانة الثلاجات",
         description: "خدمات صيانة متكاملة لجميع أنواع الثلاجات ونوفروست. شحن فريون، تغيير موتور، صيانة الترموستات، وتوفير قطع غيار أصلية بضمان معتمد.",
-        imageUrl: "assets/Main photos/Repairing Refrigerator.jpeg",
+        imageUrl: "/assets/Main photos/Repairing Refrigerator.jpeg",
         icon: "🔧",
         order: 1,
       },
       {
         title: "صيانة الغسالات",
         description: "إصلاح جميع أعطال الغسالات فوق أوتوماتيك وهاف أوتوماتيك. تغيير طبلة، طرمبة طرد المياه، إصلاح الكارتات الإلكترونية، وتركيب مساعدين أصليين.",
-        imageUrl: "assets/Main photos/Repairing Washing Machine.jpeg",
+        imageUrl: "/assets/Main photos/Repairing Washing Machine.jpeg",
         icon: "🔧",
         order: 2,
       },
       {
         title: "صيانة ديب فريزر",
         description: "صيانة ديب فريزر أفقي ورأسي. علاج مشاكل التبريد الضعيف وتراكم الثلج، وإصلاح الكومبريسور والترموستات وشحن الفريون بالمنزل.",
-        imageUrl: "assets/Main photos/Diagnostic Visit.jpeg",
+        imageUrl: "/assets/Main photos/Diagnostic Visit.jpeg",
         icon: "🔧",
         order: 3,
       },
       {
         title: "صيانة التكييفات",
         description: "تنظيف وشحن فريون وصيانة تكييفات سبليت وشباك. إصلاح كارتة التكييف وعلاج تسريبات المياه وتوفير صيانة وقائية قبل الصيف.",
-        imageUrl: "assets/Products/conditioning.png",
+        imageUrl: "/assets/Products/conditioning.png",
         icon: "🔧",
         order: 4,
       },
       {
         title: "صيانة غسالات أطباق",
         description: "إصلاح أعطال غسالات الأطباق لجميع الماركات. تنظيف رشاشات المياه، تغيير طرمبات وسخانات المياه، وحل مشكلة عدم تنظيف الصحون بشكل جيد.",
-        imageUrl: "assets/Products/Dishwasher.png",
+        imageUrl: "/assets/Products/Dishwasher.png",
         icon: "🔧",
         order: 5,
       },
       {
         title: "صيانة سخانات وبوتاجازات",
         description: "صيانة سخانات الغاز والكهرباء وتغيير الهيتر والترموستات. تسليك عيون البوتاجاز وإصلاح الفرن وتغيير المحابس ومفاتيح الأمان.",
-        imageUrl: "assets/Products/Gas Cooker.png",
+        imageUrl: "/assets/Products/Gas Cooker.png",
         icon: "🔧",
         order: 6,
       },
     ];
 
-    const existingServices = await ctx.db
+    // Delete existing services to prevent duplicates and update with leading slash
+    const oldServices = await ctx.db
       .query("services")
       .withIndex("by_company_status", (q) => q.eq("companyId", companyId))
-      .first();
+      .collect();
+    for (const s of oldServices) {
+      await ctx.db.delete(s._id);
+    }
 
-    if (!existingServices) {
-      for (const service of servicesToSeed) {
-        await ctx.db.insert("services", {
-          companyId,
-          title: service.title,
-          description: service.description,
-          imageUrl: service.imageUrl,
-          icon: service.icon,
-          order: service.order,
-          status: "published",
-        });
-        await ctx.db.insert("services", {
-          companyId,
-          title: service.title,
-          description: service.description,
-          imageUrl: service.imageUrl,
-          icon: service.icon,
-          order: service.order,
-          status: "draft",
-        });
-      }
+    for (const service of servicesToSeed) {
+      await ctx.db.insert("services", {
+        companyId,
+        title: service.title,
+        description: service.description,
+        imageUrl: service.imageUrl,
+        icon: service.icon,
+        order: service.order,
+        status: "published",
+      });
+      await ctx.db.insert("services", {
+        companyId,
+        title: service.title,
+        description: service.description,
+        imageUrl: service.imageUrl,
+        icon: service.icon,
+        order: service.order,
+        status: "draft",
+      });
     }
 
     // 7. Seed FAQs
