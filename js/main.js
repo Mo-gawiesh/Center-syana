@@ -304,8 +304,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     // Encode URL
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    // Open WhatsApp in a new tab
-    window.open(url, '_blank');
+    // Open WhatsApp using a temporary link to bypass pop-up blockers
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     
     // Reset the form
     form.reset();
